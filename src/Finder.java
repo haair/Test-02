@@ -160,7 +160,11 @@ public class Finder implements IScreen {
         fileMenu.add(openItem);
         saveItem = new JMenuItem("Save");
         JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.addActionListener(e -> {
+            System.exit(0);
+        });
         fileMenu.add(saveItem);
+        fileMenu.add(new JSeparator());
         fileMenu.add(exitItem);
     }
 
