@@ -1,7 +1,14 @@
+package view;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import res.Resources;
+import iFace.IScreen;
+import controller.CustomPanelClickListener;
 
 public class Finder implements IScreen {
     private final JFrame jr;
@@ -32,6 +39,7 @@ public class Finder implements IScreen {
     private JLabel labelKeyboard;
     private JLabel labelText;
     private JLabel labelShortcuts;
+    private String[] leftMenu = {"1", "2", "3", "4", "5", "dau buoi", "cc"};
 
     public Finder() {
         jr = new JFrame();
@@ -44,13 +52,42 @@ public class Finder implements IScreen {
 
         createMenuBar();
 
-        createLeftPanel();
+        createLeftPanel2();
         createRecentPanel();
 
         jr.add(menuBar);
         jr.add(leftPanel);
         jr.add(recentPanel);
         jr.setVisible(true);
+    }
+
+    private void createLeftPanel2() {
+        leftPanel = new JPanel();
+        List<JLabel> labels = new ArrayList<>();
+
+        leftPanel.setBounds(0, menuBar.getHeight(), 200, jr.getHeight());
+        leftPanel.setBackground(Resources.leftPanel);
+        leftPanel.setLayout(null);
+        JLabel[] lbs = new JLabel[leftMenu.length];
+        for (int i = 0; i < lbs.length; i++) {
+            JLabel lb = new JLabel(leftMenu[i], Resources.leftPanelTextAlign);
+//            lb.setBackground(Color.green);
+            lb.setForeground(Color.white);
+            lbs[i] = lb;
+            labels.add(lb);
+        }
+
+        for (int i = 0; i < lbs.length; i++) {
+            if (i == 0) {
+                lbs[i].setBounds(0, 0, leftPanel.getWidth(), Resources.leftPanelLabelHeight);
+            } else {
+                lbs[i].setBounds(0, lbs[i - 1].getY() + lbs[i - 1].getHeight(), leftPanel.getWidth(), Resources.leftPanelLabelHeight);
+            }
+        }
+        for (JLabel lb : lbs) {
+            leftPanel.add(lb);
+        }
+        leftPanel.addMouseListener(new CustomPanelClickListener(labels, this));
     }
 
     private void createLeftPanel() {

@@ -1,5 +1,9 @@
+package controller;
+
+import iFace.IScreen;
+import res.Resources;
+
 import javax.swing.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;

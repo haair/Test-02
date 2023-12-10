@@ -1,3 +1,5 @@
+package iFace;
+
 import javax.swing.*;
 
 public interface IScreen {

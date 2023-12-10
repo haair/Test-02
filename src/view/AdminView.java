@@ -1,5 +1,8 @@
+package view;
+
 import javax.swing.*;
 import java.awt.*;
+import res.Resources;
 
 public class AdminView extends JFrame {
     private JPanel leftPanel;
