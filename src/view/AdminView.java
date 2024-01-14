@@ -1,8 +1,9 @@
 package view;
 
+import res.Resources;
+
 import javax.swing.*;
 import java.awt.*;
-import res.Resources;
 
 public class AdminView extends JFrame {
     private JPanel leftPanel;
@@ -69,7 +70,7 @@ public class AdminView extends JFrame {
 
         jPanel_icon = new JPanel();
         jPanel_icon.setBounds(0, 50, leftPanel.getWidth(), 50);
-        jPanel_icon.setBackground(new Color(0,255,0));
+        jPanel_icon.setBackground(new Color(0, 255, 0));
 
         //home
         jPanel_home = new JPanel();
